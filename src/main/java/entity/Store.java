@@ -2,13 +2,14 @@ package entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,16 +18,16 @@ import javax.persistence.Table;
  * @author laste
  */
 @Entity
-@Table(name = "tab_store")
+@Table(name = "store")
 public class Store implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idStore")
     private int idStore;
     
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne
     @JoinColumn(name = "idDirector")
-    private Director manager;
+    private Director director;
     
     @Column(name = "City")
     private String city;
@@ -48,6 +49,14 @@ public class Store implements Serializable {
         this.idStore = idStore;
     }
 
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
     public String getCity() {
         return city;
     }
@@ -56,12 +65,6 @@ public class Store implements Serializable {
         this.city = city;
     }
 
-    public Director getManager() {
-        return manager;
-    }
-
-    public void setManager(Director manager) {
-        this.manager = manager;
-    }   
+    
     
 }

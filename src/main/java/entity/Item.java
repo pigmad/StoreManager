@@ -5,8 +5,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Column;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,14 +19,14 @@ import org.hibernate.annotations.OnDeleteAction;
  * @author laste
  */
 @Entity
-@Table(name = "tab_item")
+@Table(name = "item")
 public class Item implements Serializable  {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idItem")
     private int idItem;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "idShelf")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Shelf shelf;
@@ -34,10 +34,10 @@ public class Item implements Serializable  {
     @Column(name = "name", unique=true)
     private String name;
     
-    @Column(name = "price")
+    @Column(name = "price", nullable=false)
     private double price;
     
-    @Column(name = "quantity")
+    @Column(name = "quantity", nullable=false)
     private int quantity;
     
     public Item() {
@@ -90,8 +90,9 @@ public class Item implements Serializable  {
         this.shelf = shelf;
     }
     
+    @Override
     public String toString() {
-        StringBuffer buffer = new StringBuffer();
+        StringBuilder buffer = new StringBuilder();
         buffer.append("Nom : ").append(name).append("; \n");
         buffer.append("Ref : ").append(idItem).append("; \n");
         buffer.append("Prix : ").append(price).append("; \n");

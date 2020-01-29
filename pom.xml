@@ -11,16 +11,18 @@
 
     <properties>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <spring.version>5.1.0.RELEASE</spring.version>
+        <spring.version>5.2.2.RELEASE</spring.version>
+        <datajpa.version>2.2.3.RELEASE</datajpa.version>
+        <mysqlconnector.version>8.0.18</mysqlconnector.version>
         <hibernate.version>5.2.17.Final</hibernate.version>
         <hibernate.validator>5.4.1.Final</hibernate.validator>
-        <c3p0.version>0.9.5.2</c3p0.version>
+        <fasterxml.version>2.9.10</fasterxml.version>
         <jstl.version>1.2.1</jstl.version>
         <tld.version>1.1.2</tld.version>
-        <servlets.version>3.1.0</servlets.version>
+        <servlets.version>4.0.0</servlets.version>
         <jsp.version>2.3.1</jsp.version>
-        <log4j.version>1.2.17</log4j.version>
     </properties>
+    
     <dependencies>
         <!-- Spring MVC Dependency -->
         <dependency>
@@ -34,44 +36,72 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- Spring ORM -->
+        <!-- SPRING MVC Test Dependency -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.2.2.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Mockito Test Dependency -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>3.2.4</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Spring ORM Dependency -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <!-- Spring Data JPA Dependency -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${datajpa.version}</version>
+        </dependency>
+        <!-- Hibernate EntityManager Dependency -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.9.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.9.4</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.9.4</version>
-        </dependency>
-        <!-- Hibernate Validator -->
+        <!-- Hibernate Validator Dependency -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate.validator}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <!-- Mysql Connector Dependency -->
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.1.0.RELEASE</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysqlconnector.version}</version>
+        </dependency>        
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+         <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${fasterxml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${fasterxml.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${fasterxml.version}</version>
         </dependency>
         <!-- JSTL Dependency -->
         <dependency>
@@ -98,23 +128,11 @@
             <version>${jsp.version}</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.47</version>
-        </dependency>
-        <!-- logging -->
+        <!-- logging Dependancy -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>1.7.20</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -134,5 +152,15 @@
             </plugin>
         </plugins>
     </build>
-
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 </project>

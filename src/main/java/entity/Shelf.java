@@ -8,26 +8,28 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author laste
  */
 @Entity
-@Table (name="tab_shelf")
+@Table (name="shelf")
 public class Shelf implements Serializable {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idShelf")
     private int idShelf;
    
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "idStore")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Store store;
@@ -35,6 +37,9 @@ public class Shelf implements Serializable {
     @Column(name = "name", unique=true)
     private String name;
    
+    @OneToMany(mappedBy = "shelf", fetch=FetchType.EAGER)
+    private List<Item> items;
+    
     public Shelf() {
     }
     
@@ -66,6 +71,12 @@ public class Shelf implements Serializable {
     public void setStore(Store store) {
         this.store = store;
     }
-    
-    
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
 }
