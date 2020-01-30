@@ -1,6 +1,7 @@
 package config;
 
 import java.util.Properties;
+import java.net.URISyntaxException;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -23,6 +24,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import org.apache.commons.dbcp.BasicDataSource;
 
 /**
  *
@@ -30,8 +32,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@PropertySource({ "classpath:database.properties" })
-@ComponentScan({ "controller", "service" })
+@PropertySource({"classpath:database.properties"})
+@ComponentScan({"controller", "service"})
 @EnableJpaRepositories(basePackages = "repository")
 public class PersistenceJPAConfig {
 
@@ -46,7 +48,7 @@ public class PersistenceJPAConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource());
-        entityManagerFactoryBean.setPackagesToScan(new String[] { "entity" });
+        entityManagerFactoryBean.setPackagesToScan(new String[]{"entity"});
 
         final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
@@ -63,9 +65,9 @@ public class PersistenceJPAConfig {
         hibernateProperties.setProperty("hibernate.cache.use_query_cache", env.getProperty("hibernate.cache.use_query_cache"));
         return hibernateProperties;
     }
-	
-	@Bean
-    public BasicDataSource dataSource() throws URISyntaxException {
+
+    @Bean
+    public BasicDataSource dataSource() {
         String dbUrl = System.getenv("JDBC_DATABASE_URL");
         String username = System.getenv("JDBC_DATABASE_USERNAME");
         String password = System.getenv("JDBC_DATABASE_PASSWORD");
@@ -77,7 +79,7 @@ public class PersistenceJPAConfig {
 
         return basicDataSource;
     }
-    
+
     @Bean
     public DataSourceInitializer dataSourceInitializer() {
         ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
