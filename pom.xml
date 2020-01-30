@@ -86,7 +86,13 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysqlconnector.version}</version>
-        </dependency>        
+        </dependency>    
+        <!-- PostgreSQL Connector Dependency -->
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901.jdbc4</version>
+        </dependency>    
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
          <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
