@@ -29,7 +29,7 @@ public class Store implements Serializable {
     @JoinColumn(name = "idDirector")
     private Director director;
     
-    @Column(name = "City")
+    @Column(name = "City", unique=true, nullable=false)
     private String city;
     
     public Store(){

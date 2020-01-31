@@ -32,21 +32,22 @@ public class Seller implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "idShelf")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Shelf belongsTo;
     
-    @Column(name = "isAdmin")
+    @Column(name = "isAdmin", nullable=false)
     private boolean isAdmin;
     
-    @Column(name = "firstName", unique=true)
+    @Column(name = "firstName", unique=true, nullable=false)
     private String firstName;
     
-    @Column(name = "lastName", unique=true)
+    @Column(name = "lastName", unique=true, nullable=false)
     private String lastName;
     
-    @Column(name = "mail", unique=true)
+    @Column(name = "mail", unique=true, nullable=false)
     private String mail;
     
-    @Column(name = "password")
+    @Column(name = "password", nullable=false)
     private String password;   
 
     public Seller() {

@@ -3,6 +3,7 @@ package entity;
 import java.io.Serializable;
 
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,10 +35,10 @@ public class Shelf implements Serializable {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Store store;
      
-    @Column(name = "name", unique=true)
+    @Column(name = "name", unique=true, nullable=false)
     private String name;
    
-    @OneToMany(mappedBy = "shelf", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "shelf", fetch=FetchType.EAGER, orphanRemoval=true, cascade=CascadeType.ALL)
     private List<Item> items;
     
     public Shelf() {

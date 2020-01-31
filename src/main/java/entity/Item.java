@@ -31,10 +31,10 @@ public class Item implements Serializable  {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Shelf shelf;
     
-    @Column(name = "name", unique=true)
+    @Column(name = "name", unique=true, nullable=false)
     private String name;
     
-    @Column(name = "price", nullable=false)
+    @Column(name = "price",nullable=false)
     private double price;
     
     @Column(name = "quantity", nullable=false)

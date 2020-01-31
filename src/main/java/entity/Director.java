@@ -27,13 +27,13 @@ public class Director implements Serializable {
     @JoinColumn(name = "idStore")
     private Store store;
     
-    @Column(name = "firstName", unique=true)
+    @Column(name = "firstName", unique=true, nullable=false)
     private String firstName;
     
-    @Column(name = "lastName", unique=true)
+    @Column(name = "lastName", unique=true, nullable=false)
     private String lastName;
     
-    @Column(name = "mail", unique=true)
+    @Column(name = "mail", unique=true, nullable=false)
     private String mail;
     
     @Column(name = "password")

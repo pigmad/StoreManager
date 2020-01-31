@@ -141,7 +141,7 @@ public class ItemController {
     }
 
     @PostMapping("/saveItem")
-    public String saveCustomer(HttpServletRequest request, @ModelAttribute("item") Item item) {
+    public String saveItem(HttpServletRequest request, @ModelAttribute("item") Item item) {
         if (request.getSession().getAttribute("user") == null) {
             return "redirect:/login";
         }
@@ -151,7 +151,7 @@ public class ItemController {
     }
 
     @GetMapping("/delete")
-    public String deleteCustomer(HttpServletRequest request, @RequestParam("idItem") int id) throws ObjectNotFoundException {
+    public String deleteItem(HttpServletRequest request, @RequestParam("idItem") int id) throws ObjectNotFoundException {
         if (request.getSession().getAttribute("user") == null) {
             return "redirect:/login";
         }
