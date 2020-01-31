@@ -15,7 +15,7 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="">Navigation</a>
+                            <a class="navbar-brand">Navigation</a>
                         </div>
                         <ul class="nav navbar-nav">
                             <li><a href="/home">Accueil</a></li>
@@ -79,7 +79,7 @@
                                 <c:param name="idShelf" value="${shelf.idShelf}" />
                             </c:url>
                             <!-- construct an update link with item id -->
-                            <c:url var="ShelfUpdateLink" value="/shelves/modifyForm">
+                            <c:url var="ShelfUpdateLink" value="/shelves/updateForm">
                                 <c:param name="idShelf" value="${shelf.idShelf}" />
                             </c:url>
                             <!-- construct an detail link with item id -->

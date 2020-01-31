@@ -131,7 +131,7 @@ public class ShelfController {
     }
 
     @GetMapping("/delete")
-    public String deleteCustomer(HttpServletRequest request, @RequestParam("idShelf") int id) throws ObjectNotFoundException {
+    public String deleteShelf(HttpServletRequest request, @RequestParam("idShelf") int id) throws ObjectNotFoundException {
         if (request.getSession().getAttribute("user") == null) {
             return "redirect:/login";
         }
