@@ -111,7 +111,7 @@ public class ItemController {
             String time = dfls.format(new Date());
             map.addAttribute("date", date);
             map.addAttribute("time", time);
-            map.addAttribute("message", "Modification de l'article n°" + idItem);
+            map.addAttribute("message", "Modification de l'article no" + idItem);
             Item item = itemService.getById(idItem);
             Shelf shelf = shelfService.getById(idShelf);
             map.addAttribute("item", item);
@@ -127,7 +127,7 @@ public class ItemController {
                 String date = dflf.format(new Date());
                 map.addAttribute("date", date);
                 map.addAttribute("time", time);
-                map.addAttribute("message", "Modification de l'article n°" + idItem);
+                map.addAttribute("message", "Modification de l'article no" + idItem);
                 Item item = itemService.getById(idItem);
                 Shelf shelf = shelfService.getById(idShelf);
                 map.addAttribute("item", item);

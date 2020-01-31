@@ -109,7 +109,7 @@ public class ShelfController {
             String time = dfls.format(new Date());
             map.addAttribute("date", date);
             map.addAttribute("time", time);
-            map.addAttribute("message", "Modification du rayon n°" + id);
+            map.addAttribute("message", "Modification du rayon no" + id);
             Shelf shelf = shelfService.getById(id);
             List<Store> stores = storeService.getStores();
             map.addAttribute("shelf", shelf);

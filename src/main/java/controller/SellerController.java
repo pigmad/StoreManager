@@ -115,7 +115,7 @@ public class SellerController {
             String time = dfls.format(new Date());
             map.addAttribute("date", date);
             map.addAttribute("time", time);
-            map.addAttribute("message", "Modification du vendeur n°" + id);
+            map.addAttribute("message", "Modification du vendeur no" + id);
             Seller seller = sellerService.getById(id);
             List<Shelf> shelves = shelfService.getShelves();
             map.addAttribute("seller", seller);
