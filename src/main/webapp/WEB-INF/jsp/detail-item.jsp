@@ -31,7 +31,7 @@
                 <p>Nous sommes le <c:out value="${date}"/>, il est <c:out value="${time}"/>. </p>
                 <div class="panel panel-info">
                     <div class="panel-heading">
-                        <div class="panel-title">Article n°${item.idItem} rayon ${item.shelf.name}</div>
+                        <div class="panel-title">Article no${item.idItem} rayon ${item.shelf.name}</div>
                     </div>
                     <div class="col-md-push-1 col-md-10">
                         <table class="table  table-bordered">

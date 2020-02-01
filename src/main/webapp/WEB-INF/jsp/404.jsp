@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+        body {
+            background-image: url("/resources/images/hamtarocket.jpg");
+            background-size:  cover;
+        }
+        </style>
         <title><fmt:message key="title"/></title>
         <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
         <script src="<c:url value="/resources/js/jquery.min.js" />"></script>
@@ -21,7 +27,7 @@
                                         <h1>Oops!</h1>
                                 </div>
                                 <p>La page que vous avez demandé n'est pas disponible.</p>
-                                <a href="/StoreManager/">Retour accueil</a>
+                                <a href="/">Retour accueil</a>
                         </div>
                 </div>
             </div>
