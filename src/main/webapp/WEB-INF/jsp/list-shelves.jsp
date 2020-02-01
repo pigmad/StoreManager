@@ -55,12 +55,12 @@
                                             <c:param name="idShelf" value="${shelf.idShelf}" />
                                         </c:url>
 
-                                        <!-- construct an "detail" link with shelf id -->
+                                        <!-- construct an "update" link with shelf id -->
                                         <c:url var="updateLink" value="/shelves/updateForm">
                                             <c:param name="idShelf" value="${shelf.idShelf}" />
                                         </c:url>
 
-                                        <!-- construct an "detail" link with shelf id -->
+                                        <!-- construct an "delete" link with shelf id -->
                                         <c:url var="deleteLink" value="/shelves/delete">
                                             <c:param name="idShelf" value="${shelf.idShelf}" />
                                         </c:url>
@@ -70,7 +70,7 @@
                                             <td><a href="/stores/list">${shelf.store.city}</a></td>
 
                                             <td>
-                                                <!-- display the detail link --> 
+                                                <!-- display the links --> 
                                                 <a href="${detailLink}" class="btn btn-default">Détails</a>
                                                 <c:if test="${user.getClass() == 'class entity.Director'}">
                                                     <a href="${updateLink}" class="btn btn-default">Modifier</a>

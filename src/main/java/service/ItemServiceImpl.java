@@ -32,14 +32,6 @@ public class ItemServiceImpl implements ItemService {
     public Item getById(int id){
         return itemRepository.findById(id);
     }
-    
-    @Override
-    @Transactional
-    public void changePrice(int id, int percent) {
-        Item item = itemRepository.findById(id);
-        double newPrice = item.getPrice() * (100 + percent)/100;
-        item.setPrice(newPrice);
-    }
 
     @Override
     @Transactional
@@ -53,10 +45,4 @@ public class ItemServiceImpl implements ItemService {
         itemRepository.deleteById(id);
     }
     
-    @Override
-    @Transactional
-    public void sellItem(int id) {
-        Item item = itemRepository.findById(id);
-        item.setQuantity(item.getQuantity()-1);
-    }
 }

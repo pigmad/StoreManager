@@ -9,6 +9,7 @@ import repository.ShelfRepository;
 import java.util.List;
 
 import entity.Shelf;
+import entity.Store;
 
 /**
  *

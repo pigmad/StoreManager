@@ -55,12 +55,12 @@
                                 <td>${seller.password}</td>
                             </tr>
                         </table>
-                        <!-- construct an "update" link with item id -->
+                        <!-- construct an "update" link with seller id -->
                         <c:url var="updateLink" value="/sellers/updateForm">
                             <c:param name="idSeller" value="${seller.idSeller}" />
                         </c:url>
 
-                        <!-- construct an "delete" link with item id -->
+                        <!-- construct an "delete" link with seller id -->
                         <c:url var="deleteLink" value="/sellers/delete">
                             <c:param name="idSeller" value="${seller.idSeller}" />
                         </c:url>

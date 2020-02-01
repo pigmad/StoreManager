@@ -63,23 +63,4 @@ public class StoreController {
         return "list-stores";
     }
 
-//    @GetMapping("/updateForm")
-//    public String showFormForUpdate(@RequestParam("customerId") int theId,
-//        Model theModel) throws ResourceNotFoundException {
-//        Customer theCustomer = customerService.getCustomer(theId);
-//        theModel.addAttribute("customer", theCustomer);
-//        return "customer-form";
-//    }
-//    
-//    @PostMapping("/saveStore")
-//    public String saveCustomer(@ModelAttribute("store") Store store) {
-//        storeService.saveStore(store);
-//        return "redirect:/store";
-//    }
-//    
-//    @GetMapping("/delete")
-//    public String deleteCustomer(@RequestParam("customerId") int theId) throws ResourceNotFoundException {
-//        storeService.deleteStore(theId);
-//        return "redirect:/customer/list";
-//    }
 }

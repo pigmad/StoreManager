@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 import entity.Shelf;
 import entity.Item;
+import entity.Store;
 
 /**
  *

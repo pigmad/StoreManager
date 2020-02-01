@@ -53,12 +53,12 @@
                                     <!-- loop and print all stores -->
                                     <c:forEach var="seller" items="${sellers}">
 
-                                        <!-- construct an "update" link with customer id -->
+                                        <!-- construct an "update" link with seller id -->
                                         <c:url var="updateLink" value="/sellers/updateForm">
                                             <c:param name="idSeller" value="${seller.idSeller}" />
                                         </c:url>
 
-                                        <!-- construct an "delete" link with customer id -->
+                                        <!-- construct an "delete" link with seller id -->
                                         <c:url var="deleteLink" value="/sellers/delete">
                                             <c:param name="idSeller" value="${seller.idSeller}" />
                                         </c:url>
@@ -82,7 +82,7 @@
                                             <td>${seller.mail}</td>
 
                                             <td>
-                                                <!-- display the update link --> 
+                                                <!-- display the links --> 
                                                 <a href="${updateLink}" class="btn btn-default">Modifier</a>
                                                 <a href="${deleteLink}" class="btn btn-default" onclick="if (!(confirm('Etes-vous sur de vouloir supprimer ce vendeur ?')))
                                                             return false">Supprimer</a>

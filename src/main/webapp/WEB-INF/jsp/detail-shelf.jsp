@@ -65,7 +65,6 @@
                                             <td>${item.name}</td>
 
                                             <td>
-                                                <!-- display the update link --> 
                                                 <a href="${ItemDetailLink}" class="btn btn-default">Détails</a>
                                                 <a href="${ItemDeleteLink}" class="btn btn-default" onclick="if (!(confirm('Etes-vous sur de vouloir supprimer cet article ?')))
                                                         return false">Supprimer</a>

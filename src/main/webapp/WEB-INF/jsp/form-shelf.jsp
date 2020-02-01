@@ -36,7 +36,7 @@
                     </div>
                     <div class="panel-body">
                         <form:form action="saveShelf" cssClass="form-horizontal" method="post" modelAttribute="shelf">
-                            <!-- need to associate this data with item id -->
+                            <!-- need to associate this data with shelf id -->
                             <form:hidden path="idShelf" />
 
                             <div class="form-group">

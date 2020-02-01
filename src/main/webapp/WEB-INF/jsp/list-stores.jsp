@@ -51,17 +51,6 @@
                                 <tbody> 
                                     <!-- loop and print all stores -->
                                     <c:forEach var="store" items="${stores}">
-
-                                        <!-- construct an "update" link with customer id -->
-                                        <c:url var="updateLink" value="/stores/updateForm">
-                                            <c:param name="idStore" value="${store.idStore}" />
-                                        </c:url>
-
-                                        <!-- construct an "delete" link with customer id -->
-                                        <c:url var="deleteLink" value="/stores/delete">
-                                            <c:param name="idStore" value="${store.idStore}" />
-                                        </c:url>
-
                                         <tr>
                                             <td>${store.idStore}</td>
                                             <td>${store.city}</td>

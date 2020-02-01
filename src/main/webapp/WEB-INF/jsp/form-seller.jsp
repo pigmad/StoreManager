@@ -36,7 +36,7 @@
                     </div>
                     <div class="panel-body">
                         <form:form action="saveSeller" cssClass="form-horizontal" method="post" modelAttribute="seller">
-                            <!-- need to associate this data with item id -->
+                            <!-- need to associate this data with seller id -->
                             <form:hidden path="idSeller" />
                             <form:hidden path="store.idStore" value="${user.store.idStore}"/>
                             
